@@ -17,18 +17,11 @@
             --light-border: #E2D9CC;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             background-color: var(--warm-white);
             color: var(--dark);
             font-weight: 300;
@@ -48,7 +41,6 @@
             background: rgba(253, 250, 245, 0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--light-border);
-            transition: all 0.3s ease;
         }
 
         .nav-logo {
@@ -76,8 +68,51 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--terracotta);
+        .nav-links a:hover { color: var(--terracotta); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--dark);
+            transition: all 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: var(--warm-white);
+            border-bottom: 1px solid var(--light-border);
+            z-index: 99;
+            padding: 1.5rem 2rem;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .mobile-menu.open { display: flex; }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--dark-mid);
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 400;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--light-border);
         }
 
         /* HERO */
@@ -90,13 +125,22 @@
             overflow: hidden;
         }
 
-        .hero-bg {
+        .hero-bg-image {
             position: absolute;
             top: 0; right: 0;
-            width: 45%;
+            width: 50%;
             height: 100%;
-            background: var(--cream);
+            background-image: url('ludovico.jpg');
+            background-size: cover;
+            background-position: center;
             z-index: 0;
+        }
+
+        .hero-bg-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, var(--warm-white) 0%, transparent 15%);
         }
 
         .hero-content {
@@ -123,25 +167,18 @@
             margin-bottom: 1.5rem;
         }
 
-        .hero-title em {
-            font-style: italic;
-            color: var(--terracotta);
-        }
+        .hero-title em { font-style: italic; color: var(--terracotta); }
 
         .hero-subtitle {
-            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
             line-height: 1.7;
             color: var(--dark-mid);
             margin-bottom: 2.5rem;
             max-width: 480px;
-            font-weight: 300;
         }
 
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+        .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
         .btn-primary {
             padding: 0.9rem 2rem;
@@ -151,13 +188,10 @@
             font-size: 0.85rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            font-weight: 400;
             transition: background 0.2s;
         }
 
-        .btn-primary:hover {
-            background: var(--terracotta-light);
-        }
+        .btn-primary:hover { background: var(--terracotta-light); }
 
         .btn-secondary {
             padding: 0.9rem 2rem;
@@ -167,19 +201,13 @@
             font-size: 0.85rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            font-weight: 400;
             transition: all 0.2s;
         }
 
-        .btn-secondary:hover {
-            background: var(--dark);
-            color: white;
-        }
+        .btn-secondary:hover { background: var(--dark); color: white; }
 
         /* SECTIONS */
-        section {
-            padding: 6rem 4rem;
-        }
+        section { padding: 6rem 4rem; }
 
         .section-label {
             font-size: 0.75rem;
@@ -192,24 +220,23 @@
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 300;
-            line-height: 1.2;
+            font-size: clamp(2.2rem, 4vw, 3.8rem);
+            font-weight: 400;
+            line-height: 1.15;
             color: var(--dark);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
         }
 
         .divider {
             width: 3rem;
-            height: 1px;
+            height: 2px;
             background: var(--terracotta);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         /* CHI SONO */
-        #chi-sono {
-            background: var(--cream);
-        }
+        #chi-sono { background: var(--cream); }
 
         .about-grid {
             display: grid;
@@ -220,15 +247,11 @@
         }
 
         .about-text p {
-            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
             line-height: 1.9;
             color: var(--dark-mid);
             margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .about-sidebar {
-            padding-top: 1rem;
         }
 
         .credential-item {
@@ -236,9 +259,7 @@
             border-bottom: 1px solid var(--light-border);
         }
 
-        .credential-item:first-child {
-            border-top: 1px solid var(--light-border);
-        }
+        .credential-item:first-child { border-top: 1px solid var(--light-border); }
 
         .credential-label {
             font-size: 0.75rem;
@@ -246,28 +267,23 @@
             text-transform: uppercase;
             color: var(--terracotta);
             margin-bottom: 0.4rem;
-            font-weight: 400;
         }
 
         .credential-value {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
             color: var(--dark);
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         /* SERVIZI */
-        #servizi {
-            background: var(--warm-white);
-        }
+        #servizi { background: var(--warm-white); }
 
-        .services-intro {
-            max-width: 600px;
-            margin-bottom: 4rem;
-        }
+        .services-intro { max-width: 600px; margin-bottom: 4rem; }
 
         .services-intro p {
-            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
             line-height: 1.8;
             color: var(--dark-mid);
         }
@@ -276,14 +292,13 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 0;
         }
 
         .service-card {
-            padding: 2.5rem 2rem;
             border: 1px solid var(--light-border);
             transition: border-color 0.2s, transform 0.2s;
-            background: var(--warm-white);
+            overflow: hidden;
         }
 
         .service-card:hover {
@@ -291,69 +306,69 @@
             transform: translateY(-3px);
         }
 
-        .service-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: var(--light-border);
-            margin-bottom: 1rem;
-            font-weight: 300;
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
         }
+
+        .service-body { padding: 2rem 1.8rem; }
 
         .service-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--dark);
             margin-bottom: 0.8rem;
             font-weight: 500;
         }
 
         .service-desc {
-            font-size: 0.9rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
             line-height: 1.7;
             color: var(--mid);
-            font-weight: 300;
         }
 
-        .locations {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-            padding-top: 3rem;
-            border-top: 1px solid var(--light-border);
+        /* LOCATIONS */
+        .locations-section {
+            padding: 4rem;
+            background: var(--cream);
         }
 
-        .location-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
+        .locations-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            font-weight: 400;
         }
+
+        .locations { display: flex; gap: 3rem; flex-wrap: wrap; }
+
+        .location-item { display: flex; flex-direction: column; gap: 0.3rem; }
 
         .location-label {
             font-size: 0.75rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--terracotta);
-            font-weight: 400;
         }
 
         .location-value {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--dark);
         }
 
         /* CONTENUTI */
-        #contenuti {
-            background: var(--cream);
-        }
+        #contenuti { background: var(--warm-white); }
 
-        .contenuti-inner {
-            max-width: 700px;
-        }
+        .contenuti-inner { max-width: 700px; }
 
         .contenuti-inner p {
-            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
             line-height: 1.8;
             color: var(--dark-mid);
             margin-bottom: 2rem;
@@ -366,20 +381,15 @@
             color: var(--terracotta);
             text-decoration: none;
             font-size: 1rem;
-            font-weight: 400;
             border-bottom: 1px solid var(--terracotta);
             padding-bottom: 0.2rem;
             transition: opacity 0.2s;
         }
 
-        .ig-link:hover {
-            opacity: 0.7;
-        }
+        .ig-link:hover { opacity: 0.7; }
 
         /* BLOG */
-        #blog {
-            background: var(--warm-white);
-        }
+        #blog { background: var(--cream); }
 
         .blog-placeholder {
             padding: 4rem;
@@ -396,14 +406,8 @@
         }
 
         /* CONTATTI */
-        #contatti {
-            background: var(--dark);
-            color: white;
-        }
-
-        #contatti .section-title {
-            color: white;
-        }
+        #contatti { background: var(--dark); color: white; }
+        #contatti .section-title { color: white; }
 
         .contact-grid {
             display: grid;
@@ -414,15 +418,14 @@
         }
 
         .contact-intro p {
-            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
             line-height: 1.8;
             color: rgba(255,255,255,0.6);
             margin-bottom: 2rem;
         }
 
-        .contact-item {
-            margin-bottom: 1.5rem;
-        }
+        .contact-item { margin-bottom: 1.5rem; }
 
         .contact-label {
             font-size: 0.75rem;
@@ -445,22 +448,11 @@
             transition: border-color 0.2s;
         }
 
-        .contact-value a:hover {
-            border-color: var(--terracotta-light);
-        }
+        .contact-value a:hover { border-color: var(--terracotta-light); }
 
-        /* FORM */
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
+        .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
 
         .form-group label {
             font-size: 0.75rem;
@@ -484,14 +476,10 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--terracotta-light);
-        }
+        .form-group textarea:focus { border-color: var(--terracotta-light); }
 
         .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255,255,255,0.2);
-        }
+        .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
 
         .btn-submit {
             padding: 1rem 2rem;
@@ -505,12 +493,9 @@
             cursor: pointer;
             transition: background 0.2s;
             align-self: flex-start;
-            font-weight: 400;
         }
 
-        .btn-submit:hover {
-            background: var(--terracotta-light);
-        }
+        .btn-submit:hover { background: var(--terracotta-light); }
 
         /* FOOTER */
         footer {
@@ -529,66 +514,32 @@
             color: rgba(255,255,255,0.4);
         }
 
-        .footer-note {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.2);
-        }
+        .footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
 
-        /* FADE IN */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* MOBILE */
         @media (max-width: 768px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            #home {
-                padding: 7rem 1.5rem 4rem;
-            }
-
-            .hero-bg {
-                display: none;
-            }
-
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            footer {
-                padding: 1.5rem;
-                flex-direction: column;
-                text-align: center;
-            }
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            section { padding: 4rem 1.5rem; }
+            #home { padding: 7rem 1.5rem 4rem; }
+            .hero-bg-image { width: 100%; opacity: 0.15; }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .locations-section { padding: 3rem 1.5rem; }
+            footer { padding: 1.5rem; flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAV -->
     <nav>
         <a href="#home" class="nav-logo">Ludovico Delle Donne</a>
         <ul class="nav-links">
@@ -598,13 +549,23 @@
             <li><a href="#blog">Blog</a></li>
             <li><a href="#contatti">Contatti</a></li>
         </ul>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
-    <!-- HERO -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#chi-sono" onclick="toggleMenu()">Chi sono</a>
+        <a href="#servizi" onclick="toggleMenu()">Servizi</a>
+        <a href="#contenuti" onclick="toggleMenu()">Contenuti</a>
+        <a href="#blog" onclick="toggleMenu()">Blog</a>
+        <a href="#contatti" onclick="toggleMenu()">Contatti</a>
+    </div>
+
     <section id="home">
-        <div class="hero-bg"></div>
+        <div class="hero-bg-image"></div>
         <div class="hero-content">
-            <p class="hero-eyebrow">Psicologo · Roma</p>
+            <p class="hero-eyebrow">Psicologo</p>
             <h1 class="hero-title">Siamo tutti<br><em>figli di qualcosa.</em></h1>
             <p class="hero-subtitle">Infanzia, adolescenza e coppia. Perché capire da dove veniamo è capire tutto il resto.</p>
             <div class="hero-cta">
@@ -614,7 +575,6 @@
         </div>
     </section>
 
-    <!-- CHI SONO -->
     <section id="chi-sono">
         <div class="about-grid fade-in">
             <div class="about-text">
@@ -628,6 +588,14 @@
             </div>
             <div class="about-sidebar">
                 <div class="credential-item">
+                    <p class="credential-label">Laurea</p>
+                    <p class="credential-value">Laurea Magistrale in Psicologia dell'Intervento nei Contesti Relazionali e Sociali — 110/110 con lode — Università del Salento</p>
+                </div>
+                <div class="credential-item">
+                    <p class="credential-label">Abilitazione</p>
+                    <p class="credential-value">Abilitazione all'esercizio della professione di Psicologo</p>
+                </div>
+                <div class="credential-item">
                     <p class="credential-label">Formazione</p>
                     <p class="credential-value">Specializzazione in Psicoanalisi dell'Infanzia, Adolescenza e Coppia — Istituto Winnicott, Roma</p>
                 </div>
@@ -637,17 +605,12 @@
                 </div>
                 <div class="credential-item">
                     <p class="credential-label">Attività</p>
-                    <p class="credential-value">Volontario presso AFIPS — Sportello d'Ascolto Psicologico</p>
-                </div>
-                <div class="credential-item">
-                    <p class="credential-label">Approccio</p>
-                    <p class="credential-value">Psicoanalitico, con focus sullo sviluppo precoce e le relazioni oggettuali</p>
+                    <p class="credential-value">Tirocinio in Neuropsichiatria Infantile — Nardò<br><br>Volontario presso AFIPS — Sportello d'Ascolto Psicologico</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVIZI -->
     <section id="servizi">
         <div class="services-intro fade-in">
             <p class="section-label">Servizi</p>
@@ -657,39 +620,29 @@
         </div>
         <div class="services-grid fade-in">
             <div class="service-card">
-                <p class="service-number">01</p>
-                <h3 class="service-name">Colloqui Individuali</h3>
-                <p class="service-desc">Percorsi psicologici per bambini, adolescenti e adulti. Con un'attenzione particolare all'infanzia come chiave di lettura del presente.</p>
+                <img class="service-image" src="https://images.unsplash.com/photo-1765447041709-9f1efbc81606?w=600&q=80" alt="Colloqui individuali">
+                <div class="service-body">
+                    <h3 class="service-name">Colloqui Individuali</h3>
+                    <p class="service-desc">Percorsi psicologici per bambini, adolescenti e adulti. Con un'attenzione particolare all'infanzia come chiave di lettura del presente.</p>
+                </div>
             </div>
             <div class="service-card">
-                <p class="service-number">02</p>
-                <h3 class="service-name">Terapia di Coppia</h3>
-                <p class="service-desc">Uno spazio per comprendere le dinamiche relazionali, i pattern che si ripetono e le radici di ciò che non funziona nella coppia.</p>
+                <img class="service-image" src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=600&q=80" alt="Terapia di coppia">
+                <div class="service-body">
+                    <h3 class="service-name">Terapia di Coppia</h3>
+                    <p class="service-desc">Uno spazio per comprendere le dinamiche relazionali, i pattern che si ripetono e le radici di ciò che non funziona nella coppia.</p>
+                </div>
             </div>
             <div class="service-card">
-                <p class="service-number">03</p>
-                <h3 class="service-name">Consulenza Genitoriale</h3>
-                <p class="service-desc">Supporto ai genitori per comprendere e accompagnare lo sviluppo emotivo dei propri figli, nelle diverse fasi della crescita.</p>
-            </div>
-        </div>
-        <div class="locations fade-in">
-            <div class="location-item">
-                <p class="location-label">Lecce</p>
-                <p class="location-value">Via Ludovico Maremonti 41</p>
-            </div>
-            <div class="location-item">
-                <p class="location-label">Calimera</p>
-                <p class="location-value">Via Giuseppe Puccini 6</p>
-            </div>
-            <div class="location-item">
-                <p class="location-label">Online</p>
-                <p class="location-value">Sessioni via Zoom</p>
+                <img class="service-image" src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=600&q=80" alt="Consulenza genitoriale">
+                <div class="service-body">
+                    <h3 class="service-name">Consulenza Genitoriale</h3>
+                    <p class="service-desc">Supporto ai genitori per comprendere e accompagnare lo sviluppo emotivo dei propri figli, nelle diverse fasi della crescita.</p>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- CONTENUTI -->
-    <section id="contenuti">
+<section id="contenuti">
         <div class="contenuti-inner fade-in">
             <p class="section-label">Contenuti</p>
             <h2 class="section-title">Psicoanalisi per tutti</h2>
@@ -703,7 +656,6 @@
         </div>
     </section>
 
-    <!-- BLOG -->
     <section id="blog">
         <p class="section-label">Blog</p>
         <h2 class="section-title">Riflessioni e approfondimenti</h2>
@@ -713,7 +665,25 @@
         </div>
     </section>
 
-    <!-- CONTATTI -->
+        <div class="locations-section fade-in">
+        <p class="locations-title">Dove ci troviamo</p>
+        <div class="locations">
+            <div class="location-item">
+                <p class="location-label">Lecce</p>
+                <p class="location-value">Via Ludovico Maremonti 41</p>
+            </div>
+            <div class="location-item">
+                <p class="location-label">Calimera</p>
+                <p class="location-value">Via Giuseppe Puccini 6</p>
+            </div>
+            <div class="location-item">
+                <p class="location-label">Online</p>
+                <p class="location-value">Sessioni via Zoom</p>
+            </div>
+        </div>
+    </div>
+
+
     <section id="contatti">
         <div class="contact-grid fade-in">
             <div class="contact-intro">
@@ -744,7 +714,7 @@
                     <input type="email" placeholder="La tua email" required>
                 </div>
                 <div class="form-group">
-                    <label>Messaggio</label>
+                    <label>Motivo della richiesta</label>
                     <textarea rows="5" placeholder="Come posso aiutarti?" required></textarea>
                 </div>
                 <button type="submit" class="btn-submit">Invia messaggio</button>
@@ -752,25 +722,24 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p class="footer-logo">Ludovico Delle Donne — Psicologo</p>
         <p class="footer-note">© 2026 · Tutti i diritti riservati</p>
     </footer>
 
     <script>
-        // Fade in on scroll
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Form submit
         function handleSubmit(e) {
             e.preventDefault();
             const btn = e.target.querySelector('.btn-submit');
@@ -784,13 +753,5 @@
         }
     </script>
 
-</body>
-</html>
-tent="width=device-width, initial-scale=1.0">
-    <title>Ludovico Delle Donne | Psicologo</title>
-</head>
-<body>
-    <h1>Siamo tutti figli di qualcosa.</h1>
-    <p>Infanzia, adolescenza e coppia. Perché capire da dove veniamo è capire tutto il resto.</p>
 </body>
 </html>
