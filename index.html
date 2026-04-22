@@ -4,6 +4,790 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ludovico Delle Donne | Psicologo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F0E8;
+            --warm-white: #FDFAF5;
+            --terracotta: #B85C38;
+            --terracotta-light: #D4795A;
+            --dark: #1C1C1C;
+            --dark-mid: #3A3A3A;
+            --mid: #7A7A7A;
+            --light-border: #E2D9CC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--warm-white);
+            color: var(--dark);
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(253, 250, 245, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--light-border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--mid);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--terracotta);
+        }
+
+        /* HERO */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 4rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; right: 0;
+            width: 45%;
+            height: 100%;
+            background: var(--cream);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--terracotta);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--dark-mid);
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 0.9rem 2rem;
+            background: var(--terracotta);
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--terracotta-light);
+        }
+
+        .btn-secondary {
+            padding: 0.9rem 2rem;
+            border: 1px solid var(--dark);
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 6rem 4rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--dark);
+            margin-bottom: 2rem;
+        }
+
+        .divider {
+            width: 3rem;
+            height: 1px;
+            background: var(--terracotta);
+            margin-bottom: 2rem;
+        }
+
+        /* CHI SONO */
+        #chi-sono {
+            background: var(--cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+            max-width: 1100px;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--dark-mid);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-sidebar {
+            padding-top: 1rem;
+        }
+
+        .credential-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .credential-item:first-child {
+            border-top: 1px solid var(--light-border);
+        }
+
+        .credential-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 0.4rem;
+            font-weight: 400;
+        }
+
+        .credential-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        /* SERVIZI */
+        #servizi {
+            background: var(--warm-white);
+        }
+
+        .services-intro {
+            max-width: 600px;
+            margin-bottom: 4rem;
+        }
+
+        .services-intro p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--dark-mid);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--light-border);
+            transition: border-color 0.2s, transform 0.2s;
+            background: var(--warm-white);
+        }
+
+        .service-card:hover {
+            border-color: var(--terracotta);
+            transform: translateY(-3px);
+        }
+
+        .service-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--light-border);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .service-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .service-desc {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--mid);
+            font-weight: 300;
+        }
+
+        .locations {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--light-border);
+        }
+
+        .location-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .location-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            font-weight: 400;
+        }
+
+        .location-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        /* CONTENUTI */
+        #contenuti {
+            background: var(--cream);
+        }
+
+        .contenuti-inner {
+            max-width: 700px;
+        }
+
+        .contenuti-inner p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--dark-mid);
+            margin-bottom: 2rem;
+        }
+
+        .ig-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            border-bottom: 1px solid var(--terracotta);
+            padding-bottom: 0.2rem;
+            transition: opacity 0.2s;
+        }
+
+        .ig-link:hover {
+            opacity: 0.7;
+        }
+
+        /* BLOG */
+        #blog {
+            background: var(--warm-white);
+        }
+
+        .blog-placeholder {
+            padding: 4rem;
+            border: 1px dashed var(--light-border);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .blog-placeholder p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--mid);
+            font-style: italic;
+        }
+
+        /* CONTATTI */
+        #contatti {
+            background: var(--dark);
+            color: white;
+        }
+
+        #contatti .section-title {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+            max-width: 1000px;
+        }
+
+        .contact-intro p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--terracotta-light);
+            margin-bottom: 0.4rem;
+        }
+
+        .contact-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .contact-value a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: border-color 0.2s;
+        }
+
+        .contact-value a:hover {
+            border-color: var(--terracotta-light);
+        }
+
+        /* FORM */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.9rem 1rem;
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            outline: none;
+            transition: border-color 0.2s;
+            resize: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--terracotta-light);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .btn-submit {
+            padding: 1rem 2rem;
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s;
+            align-self: flex-start;
+            font-weight: 400;
+        }
+
+        .btn-submit:hover {
+            background: var(--terracotta-light);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-note {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.2);
+        }
+
+        /* FADE IN */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            #home {
+                padding: 7rem 1.5rem 4rem;
+            }
+
+            .hero-bg {
+                display: none;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 1.5rem;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#home" class="nav-logo">Ludovico Delle Donne</a>
+        <ul class="nav-links">
+            <li><a href="#chi-sono">Chi sono</a></li>
+            <li><a href="#servizi">Servizi</a></li>
+            <li><a href="#contenuti">Contenuti</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Psicologo · Roma</p>
+            <h1 class="hero-title">Siamo tutti<br><em>figli di qualcosa.</em></h1>
+            <p class="hero-subtitle">Infanzia, adolescenza e coppia. Perché capire da dove veniamo è capire tutto il resto.</p>
+            <div class="hero-cta">
+                <a href="#chi-sono" class="btn-primary">Scopri chi sono</a>
+                <a href="#contenuti" class="btn-secondary">Esplora i contenuti</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHI SONO -->
+    <section id="chi-sono">
+        <div class="about-grid fade-in">
+            <div class="about-text">
+                <p class="section-label">Chi sono</p>
+                <h2 class="section-title">Una storia che parte da lontano</h2>
+                <div class="divider"></div>
+                <p>C'è sempre stato qualcosa che mi spingeva a voler capire come funzionano le cose. Da bambino lo facevo con gli oggetti. Poi ho iniziato a farlo con le emozioni — le mie e quelle degli altri.</p>
+                <p>Ho scoperto la psicologia lavorando come ripetitore con i bambini. Un giorno ho incontrato un bambino con iperattività e plusdotazione — quello che dall'esterno sembrava irrequietezza, da vicino era qualcosa di molto più complesso. Volevo capire. Volevo sapere come alleviare quel disagio. Da lì non mi sono più fermato.</p>
+                <p>Ascolto molto, domando poco. Credo che ogni persona porti con sé una storia — e che capire quella storia, dalle sue radici più profonde fino al presente, sia il modo più onesto per comprendere chi si ha davanti. Come funziona nelle relazioni, cosa si aspetta dall'altro, cosa ripete senza saperlo.</p>
+                <p>Perché siamo tutti figli di qualcosa. E capire di cosa, cambia tutto.</p>
+            </div>
+            <div class="about-sidebar">
+                <div class="credential-item">
+                    <p class="credential-label">Formazione</p>
+                    <p class="credential-value">Specializzazione in Psicoanalisi dell'Infanzia, Adolescenza e Coppia — Istituto Winnicott, Roma</p>
+                </div>
+                <div class="credential-item">
+                    <p class="credential-label">Certificazioni</p>
+                    <p class="credential-value">Training Autogeno Base e Avanzato — CISSPAT, APDVOA</p>
+                </div>
+                <div class="credential-item">
+                    <p class="credential-label">Attività</p>
+                    <p class="credential-value">Volontario presso AFIPS — Sportello d'Ascolto Psicologico</p>
+                </div>
+                <div class="credential-item">
+                    <p class="credential-label">Approccio</p>
+                    <p class="credential-value">Psicoanalitico, con focus sullo sviluppo precoce e le relazioni oggettuali</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIZI -->
+    <section id="servizi">
+        <div class="services-intro fade-in">
+            <p class="section-label">Servizi</p>
+            <h2 class="section-title">Come posso aiutarti</h2>
+            <div class="divider"></div>
+            <p>Ogni percorso è costruito sulla storia specifica di chi ho davanti. Il punto di partenza è sempre l'ascolto.</p>
+        </div>
+        <div class="services-grid fade-in">
+            <div class="service-card">
+                <p class="service-number">01</p>
+                <h3 class="service-name">Colloqui Individuali</h3>
+                <p class="service-desc">Percorsi psicologici per bambini, adolescenti e adulti. Con un'attenzione particolare all'infanzia come chiave di lettura del presente.</p>
+            </div>
+            <div class="service-card">
+                <p class="service-number">02</p>
+                <h3 class="service-name">Terapia di Coppia</h3>
+                <p class="service-desc">Uno spazio per comprendere le dinamiche relazionali, i pattern che si ripetono e le radici di ciò che non funziona nella coppia.</p>
+            </div>
+            <div class="service-card">
+                <p class="service-number">03</p>
+                <h3 class="service-name">Consulenza Genitoriale</h3>
+                <p class="service-desc">Supporto ai genitori per comprendere e accompagnare lo sviluppo emotivo dei propri figli, nelle diverse fasi della crescita.</p>
+            </div>
+        </div>
+        <div class="locations fade-in">
+            <div class="location-item">
+                <p class="location-label">Lecce</p>
+                <p class="location-value">Via Ludovico Maremonti 41</p>
+            </div>
+            <div class="location-item">
+                <p class="location-label">Calimera</p>
+                <p class="location-value">Via Giuseppe Puccini 6</p>
+            </div>
+            <div class="location-item">
+                <p class="location-label">Online</p>
+                <p class="location-value">Sessioni via Zoom</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENUTI -->
+    <section id="contenuti">
+        <div class="contenuti-inner fade-in">
+            <p class="section-label">Contenuti</p>
+            <h2 class="section-title">Psicoanalisi per tutti</h2>
+            <div class="divider"></div>
+            <p>Psicoanalisi, infanzia, adolescenza e coppia — raccontati in modo accessibile a tutti. Video, Reel e riflessioni su temi che riguardano tutti, nessuno escluso. Perché la psicologia non dovrebbe essere solo per addetti ai lavori.</p>
+            <p>I primi contenuti sono in arrivo. Seguimi su Instagram per non perderli.</p>
+            <a href="https://www.instagram.com/studio.ludovicodelledonne" target="_blank" class="ig-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+                @studio.ludovicodelledonne
+            </a>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog">
+        <p class="section-label">Blog</p>
+        <h2 class="section-title">Riflessioni e approfondimenti</h2>
+        <div class="divider"></div>
+        <div class="blog-placeholder fade-in">
+            <p>"Qui nascerà qualcosa. Presto."</p>
+        </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti">
+        <div class="contact-grid fade-in">
+            <div class="contact-intro">
+                <p class="section-label" style="color: var(--terracotta-light)">Contatti</p>
+                <h2 class="section-title">Scrivimi</h2>
+                <div class="divider"></div>
+                <p>Hai una domanda, vuoi fissare un appuntamento o semplicemente vuoi saperne di più? Scrivimi — rispondo a tutti.</p>
+                <div class="contact-item">
+                    <p class="contact-label">Email</p>
+                    <p class="contact-value"><a href="mailto:studio.ludovicodelledonne@gmail.com">studio.ludovicodelledonne@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Telefono</p>
+                    <p class="contact-value"><a href="tel:+393898432526">389 843 2526</a></p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Instagram</p>
+                    <p class="contact-value"><a href="https://www.instagram.com/studio.ludovicodelledonne" target="_blank">@studio.ludovicodelledonne</a></p>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" placeholder="Il tuo nome" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="La tua email" required>
+                </div>
+                <div class="form-group">
+                    <label>Messaggio</label>
+                    <textarea rows="5" placeholder="Come posso aiutarti?" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Invia messaggio</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="footer-logo">Ludovico Delle Donne — Psicologo</p>
+        <p class="footer-note">© 2026 · Tutti i diritti riservati</p>
+    </footer>
+
+    <script>
+        // Fade in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Form submit
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('.btn-submit');
+            btn.textContent = 'Messaggio inviato ✓';
+            btn.style.background = '#4A7C59';
+            setTimeout(() => {
+                btn.textContent = 'Invia messaggio';
+                btn.style.background = '';
+                e.target.reset();
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
+tent="width=device-width, initial-scale=1.0">
+    <title>Ludovico Delle Donne | Psicologo</title>
 </head>
 <body>
     <h1>Siamo tutti figli di qualcosa.</h1>
