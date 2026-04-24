@@ -897,7 +897,7 @@
 
         <!-- CARDS -->
         <div class="services-grid fade-in">
-            <div class="service-card" onclick="openService('colloqui')">
+            <div class="service-card" data-service="colloqui">
                 <img class="service-image" src="https://images.unsplash.com/photo-1765447041709-9f1efbc81606?w=600&q=80" alt="Colloqui individuali">
                 <div class="service-body">
                     <h3 class="service-name">Colloqui Individuali</h3>
@@ -905,7 +905,7 @@
                     <span class="service-link">Scopri di più →</span>
                 </div>
             </div>
-            <div class="service-card" onclick="openService('coppia')">
+            <div class="service-card" data-service="coppia">
                 <img class="service-image" src="https://images.unsplash.com/photo-1516589091380-5d8e87df6999?w=600&q=80" alt="Terapia di coppia">
                 <div class="service-body">
                     <h3 class="service-name">Terapia di Coppia</h3>
@@ -913,7 +913,7 @@
                     <span class="service-link">Scopri di più →</span>
                 </div>
             </div>
-            <div class="service-card" onclick="openService('genitoriale')">
+            <div class="service-card" data-service="genitoriale">
                 <img class="service-image" src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=600&q=80" alt="Consulenza genitoriale">
                 <div class="service-body">
                     <h3 class="service-name">Consulenza Genitoriale</h3>
@@ -927,14 +927,14 @@
         <div class="service-detail" id="detail-colloqui">
             <div class="detail-header">
                 <h3 class="detail-title">Colloqui Individuali</h3>
-                <button class="detail-close" onclick="closeService()">×</button>
+                <button class="detail-close" data-close-service="true">×</button>
             </div>
             <p class="detail-intro">"Uno spazio riservato per fermarsi e guardare cosa sta succedendo — dentro di sé e nelle relazioni con gli altri."</p>
 
             <div class="tabs">
-                <button class="tab-btn active" onclick="switchTab('bambini', this)">Bambini</button>
-                <button class="tab-btn" onclick="switchTab('adolescenti', this)">Adolescenti</button>
-                <button class="tab-btn" onclick="switchTab('adulti', this)">Adulti</button>
+                <button class="tab-btn active" data-tab="bambini">Bambini</button>
+                <button class="tab-btn" data-tab="adolescenti">Adolescenti</button>
+                <button class="tab-btn" data-tab="adulti">Adulti</button>
             </div>
 
             <div class="tab-content active" id="tab-bambini">
@@ -951,7 +951,7 @@
                             <span class="tag">Gioco terapeutico</span>
                             <span class="tag">Supporto genitoriale</span>
                         </div>
-                        <button class="cta-btn" onclick="openModal('Colloqui Individuali — Bambini')">Richiedi informazioni</button>
+                        <button class="cta-btn" data-modal="Colloqui Individuali — Bambini">Richiedi informazioni</button>
                     </div>
                 </div>
             </div>
@@ -970,7 +970,7 @@
                             <span class="tag">Relazioni</span>
                             <span class="tag">Disagio scolastico</span>
                         </div>
-                        <button class="cta-btn" onclick="openModal('Colloqui Individuali — Adolescenti')">Richiedi informazioni</button>
+                        <button class="cta-btn" data-modal="Colloqui Individuali — Adolescenti">Richiedi informazioni</button>
                     </div>
                 </div>
             </div>
@@ -989,7 +989,7 @@
                             <span class="tag">Relazioni</span>
                             <span class="tag">Crescita personale</span>
                         </div>
-                        <button class="cta-btn" onclick="openModal('Colloqui Individuali — Adulti')">Richiedi informazioni</button>
+                        <button class="cta-btn" data-modal="Colloqui Individuali — Adulti">Richiedi informazioni</button>
                     </div>
                 </div>
             </div>
@@ -998,7 +998,7 @@
         <div class="service-detail" id="detail-coppia">
             <div class="detail-header">
                 <h3 class="detail-title">Terapia di Coppia</h3>
-                <button class="detail-close" onclick="closeService()">×</button>
+                <button class="detail-close" data-close-service="true">×</button>
             </div>
             <p class="detail-intro">"Uno spazio neutro in cui entrambi i partner possono essere ascoltati, senza giudizi."</p>
             <div class="tab-grid">
@@ -1014,7 +1014,7 @@
                         <span class="tag">Crisi di coppia</span>
                         <span class="tag">Pattern relazionali</span>
                     </div>
-                    <button class="cta-btn" onclick="openModal('Terapia di Coppia')">Richiedi informazioni</button>
+                    <button class="cta-btn" data-modal="Terapia di Coppia">Richiedi informazioni</button>
                 </div>
             </div>
         </div>
@@ -1022,7 +1022,7 @@
         <div class="service-detail" id="detail-genitoriale">
             <div class="detail-header">
                 <h3 class="detail-title">Consulenza Genitoriale</h3>
-                <button class="detail-close" onclick="closeService()">×</button>
+                <button class="detail-close" data-close-service="true">×</button>
             </div>
             <p class="detail-intro">"Capire meglio il proprio figlio — e il proprio modo di stare in relazione con lui."</p>
             <div class="tab-grid">
@@ -1038,7 +1038,7 @@
                         <span class="tag">Dinamiche familiari</span>
                         <span class="tag">Separazioni</span>
                     </div>
-                    <button class="cta-btn" onclick="openModal('Consulenza Genitoriale')">Richiedi informazioni</button>
+                    <button class="cta-btn" data-modal="Consulenza Genitoriale">Richiedi informazioni</button>
                 </div>
             </div>
         </div>
@@ -1151,29 +1151,70 @@
         }
 
 
-        function openService(id) {
-            // Close all panels first
-            document.querySelectorAll('.service-detail').forEach(d => d.classList.remove('open'));
-            const detail = document.getElementById('detail-' + id);
-            detail.classList.add('open');
-            setTimeout(() => {
-                detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        }
+        // Service panels
+        document.addEventListener('DOMContentLoaded', function() {
+            // Service cards
+            document.querySelectorAll('[data-service]').forEach(card => {
+                card.addEventListener('click', function() {
+                    const id = this.getAttribute('data-service');
+                    document.querySelectorAll('.service-detail').forEach(d => d.classList.remove('open'));
+                    const detail = document.getElementById('detail-' + id);
+                    detail.classList.add('open');
+                    setTimeout(() => detail.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+                });
+            });
 
-        function closeService() {
-            document.querySelectorAll('.service-detail').forEach(d => d.classList.remove('open'));
-        }
+            // Close service
+            document.querySelectorAll('[data-close-service]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.service-detail').forEach(d => d.classList.remove('open'));
+                });
+            });
 
-        function switchTab(tab, btn) {
-            const panel = btn.closest('.service-detail');
-            panel.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            panel.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            panel.querySelector('#tab-' + tab).classList.add('active');
-            btn.classList.add('active');
-        }
+            // Tabs
+            document.querySelectorAll('[data-tab]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tab = this.getAttribute('data-tab');
+                    const panel = this.closest('.service-detail');
+                    panel.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                    panel.querySelectorAll('[data-tab]').forEach(b => b.classList.remove('active'));
+                    panel.querySelector('#tab-' + tab).classList.add('active');
+                    this.classList.add('active');
+                });
+            });
 
-        function toggleMenu() {
+            // Modal open
+            document.querySelectorAll('[data-modal]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const servizio = this.getAttribute('data-modal');
+                    document.getElementById('modalTitle').textContent = servizio;
+                    document.getElementById('modalServizio').value = servizio;
+                    document.getElementById('modalOverlay').classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Modal close button
+            document.querySelectorAll('[data-close-modal]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.getElementById('modalOverlay').classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Modal close outside
+            const overlay = document.getElementById('modalOverlay');
+            if (overlay) {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+        });
+
+                function toggleMenu() {
             document.getElementById('mobileMenu').classList.toggle('open');
         }
 
@@ -1200,9 +1241,9 @@
 
 
     <!-- MODAL -->
-    <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal-overlay" id="modalOverlay" id="modalOverlay">
         <div class="modal">
-            <button class="modal-close" onclick="closeModal()">×</button>
+            <button class="modal-close" data-close-modal="true">×</button>
             <h3 class="modal-title" id="modalTitle">Richiedi informazioni</h3>
             <p class="modal-subtitle">Ti risponderò il prima possibile.</p>
             <form action="https://formspree.io/f/mbdqpega" method="POST">
