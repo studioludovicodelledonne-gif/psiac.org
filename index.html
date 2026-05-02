@@ -502,10 +502,9 @@
             background: #111;
             padding: 2rem 4rem;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
         }
 
         .footer-logo {
@@ -812,6 +811,43 @@
 
         .cta-btn:hover { background: var(--terracotta-light); }
 
+
+        .ig-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-badge {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .footer-badge:hover { opacity: 1; }
+
     </style>
 </head>
 <body>
@@ -869,7 +905,7 @@
                 </div>
                 <div class="credential-item">
                     <p class="credential-label">Abilitazione</p>
-                    <p class="credential-value">Abilitazione all'esercizio della professione di Psicologo n°8660</p>
+                    <p class="credential-value">Abilitazione all'esercizio della professione di Psicologo</p>
                 </div>
                 <div class="credential-item">
                     <p class="credential-label">Formazione</p>
@@ -942,14 +978,14 @@
                     <img class="tab-image" src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80" alt="Bambini">
                     <div class="tab-text">
                         <h4>Il mondo del bambino</h4>
-                        <p>I bambini non sempre trovano le parole per dire quello che sentono. Ma lo mostrano nel gioco, nel disegno, nel modo in cui si muovono nello spazio e nelle relazioni.</p>
+                        <p>I bambini non sempre trovano le parole per dire quello che sentono. Ma lo mostrano — nel gioco, nel disegno, nel modo in cui si muovono nello spazio e nelle relazioni.</p>
                         <p>Con i bambini lavoro attraverso il gioco e la narrazione, creando uno spazio sicuro in cui possano esprimersi liberamente. Il lavoro include sempre un confronto costante con i genitori, perché il bambino non può essere separato dal contesto in cui cresce.</p>
                         <p>Mi occupo di difficoltà relazionali, emotivi e comportamentali, disturbi dell'apprendimento, elaborazione di traumi precoci e situazioni di disagio familiare.</p>
                         <div class="tab-tags">
                             <span class="tag">0-6 anni</span>
                             <span class="tag">6-11 anni</span>
                             <span class="tag">Gioco terapeutico</span>
-                            <span class="tag">Disegno</span>
+                            <span class="tag">Supporto genitoriale</span>
                         </div>
                         <button class="cta-btn" data-modal="Colloqui Individuali — Bambini">Richiedi informazioni</button>
                     </div>
@@ -961,14 +997,13 @@
                     <img class="tab-image" src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80" alt="Adolescenti">
                     <div class="tab-text">
                         <h4>Lo spazio dell'adolescente</h4>
-                        <p>L'adolescenza è il momento in cui si inizia a costruire una propria identità, spesso in conflitto con quella che gli altri si aspettano. È un periodo intenso, a volte caotico, che merita uno spazio neutro e privo di giudizi.</p>
-                        <p>Con gli adolescenti creo un luogo lontano dalla pressione familiare e scolastica, uno spazio dove poter essere sé stessi senza dover spiegare troppo.</p>
+                        <p>L'adolescenza è il momento in cui si inizia a costruire una propria identità — spesso in conflitto con quella che gli altri si aspettano. È un periodo intenso, a volte caotico, che merita uno spazio neutro e privo di giudizi.</p>
+                        <p>Con gli adolescenti creo un luogo lontano dalla pressione familiare e scolastica — uno spazio dove poter essere sé stessi senza dover spiegare troppo.</p>
                         <p>Mi occupo di difficoltà identitarie, relazioni con i pari, gestione delle emozioni, e situazioni di disagio scolastico o familiare.</p>
                         <div class="tab-tags">
                             <span class="tag">12-18 anni</span>
                             <span class="tag">Identità</span>
                             <span class="tag">Relazioni</span>
-                            <span class="tag">Ansia e attacchi di panico</span>
                             <span class="tag">Disagio scolastico</span>
                         </div>
                         <button class="cta-btn" data-modal="Colloqui Individuali — Adolescenti">Richiedi informazioni</button>
@@ -981,13 +1016,12 @@
                     <img class="tab-image" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80" alt="Adulti">
                     <div class="tab-text">
                         <h4>Il percorso dell'adulto</h4>
-                        <p>A volte ci si ritrova a ripetere gli stessi schemi nelle relazioni, nel lavoro, nelle reazioni. A volte qualcosa si rompe e non si sa da dove cominciare a ricostruire.</p>
-                        <p>Con gli adulti esploro il presente attraverso il passato, non per restare fermi lì, ma per capire cosa si ripete e perché. L'infanzia non è un capitolo chiuso: è uno sfondo sempre presente che continua a orientare le scelte, spesso senza che ce ne accorgiamo.</p>
+                        <p>A volte ci si ritrova a ripetere gli stessi schemi — nelle relazioni, nel lavoro, nelle reazioni. A volte qualcosa si rompe e non si sa da dove cominciare a ricostruire.</p>
+                        <p>Con gli adulti esploro il presente attraverso il passato — non per restare fermi lì, ma per capire cosa si ripete e perché. L'infanzia non è un capitolo chiuso: è uno sfondo sempre presente che continua a orientare le scelte, spesso senza che ce ne accorgiamo.</p>
                         <p>Mi occupo di difficoltà relazionali, stati d'ansia e umore, elaborazione di eventi traumatici, e percorsi di crescita personale.</p>
                         <div class="tab-tags">
                             <span class="tag">Adulti</span>
                             <span class="tag">Ansia e umore</span>
-                             <span class="tag">Ritiro universitario</span>
                             <span class="tag">Relazioni</span>
                             <span class="tag">Crescita personale</span>
                         </div>
@@ -1053,10 +1087,15 @@
             <h2 class="section-title">Psicoanalisi per tutti</h2>
             <div class="divider"></div>
             <p>Psicoanalisi, infanzia, adolescenza e coppia — raccontati in modo accessibile a tutti. Video, Reel e riflessioni su temi che riguardano tutti, nessuno escluso. Perché la psicologia non dovrebbe essere solo per addetti ai lavori.</p>
-            <p>I primi contenuti sono in arrivo. Seguimi su Instagram per non perderli.</p>
+            <p>Qui trovi i miei contenuti su Instagram — psicoanalisi, infanzia, adolescenza e coppia raccontati in modo accessibile a tutti.</p>
+            <div class="ig-grid">
+                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DXjR72wjUN-/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin:1px; max-width:540px; min-width:326px; padding:0; width:99.375%;"></blockquote>
+            </div>
+            <script async src="//www.instagram.com/embed.js"></script>
+            <br>
             <a href="https://www.instagram.com/studio.ludovicodelledonne" target="_blank" class="ig-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
-                @studio.ludovicodelledonne
+                Seguimi su @studio.ludovicodelledonne
             </a>
         </div>
     </section>
@@ -1128,7 +1167,14 @@
     </section>
 
     <footer>
-        <p class="footer-logo">Ludovico Delle Donne — Psicologo</p>
+        <div class="footer-top">
+            <p class="footer-logo">Ludovico Delle Donne — Psicologo</p>
+            <div class="footer-logos">
+                
+                <img src="https://www.psicologipuglia.it/wp-content/uploads/2025/10/LOGO_OPP_positivo-e1769438430200.png" alt="Ordine Psicologi Puglia" class="footer-badge">
+                <div id="box"><a rel="nofollow" href="https://www.guidapsicologi.it/studio/ludovico-delle-donne?utm_source=205882&utm_medium=widget&utm_campaign=widget-company_stamp" target="_blank"><img src="https://www.guidapsicologi.it/stamp.xpng?com=205882&v=10" alt="Ludovico Delle Donne" border="0" style="height:60px;" /></a></div>
+            </div>
+        </div>
         <p class="footer-note">© 2026 · Tutti i diritti riservati</p>
     </footer>
 
